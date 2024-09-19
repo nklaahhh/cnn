@@ -8,9 +8,6 @@ nltk
 pytest
 tensorflow
 matplotlib
-streamlit
-tensorflow
+Pillow>=10.4.0  # Ensure compatibility with your Python version
+streamlit==1.25.0
 numpy
-Pillow
-cv2
-
