@@ -2,6 +2,24 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import tensorflow as tf
+import subprocess
+import streamlit as st
+
+def upgrade_pip():
+    with st.spinner("Upgrading pip..."):
+        # Upgrade pip using subprocess to run the command
+        result = subprocess.run(["python", "-m", "pip", "install", "--upgrade", "pip"], capture_output=True, text=True)
+        
+        # Check for errors in the result
+        if result.returncode == 0:
+            st.success("Pip has been upgraded successfully!")
+        else:
+            st.error(f"Failed to upgrade pip:\n{result.stderr}")
+
+# Button in Streamlit to trigger the pip upgrade
+if st.button("Upgrade pip"):
+    upgrade_pip()
+
 
 
 
