@@ -12,5 +12,5 @@ streamlit
 tensorflow
 numpy
 Pillow
-
+cv2
 
