@@ -9,8 +9,6 @@ pytest
 tensorflow
 matplotlib
 Pillow
-
--e .
 streamlit==1.25.0
 tensorflow==2.12.0
 numpy
