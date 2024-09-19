@@ -8,6 +8,7 @@ nltk
 pytest
 tensorflow
 matplotlib
-Pillow>=10.4.0  # Ensure compatibility with your Python version
+Pillow>=7.1.0,<10
 streamlit==1.25.0
 numpy
+
