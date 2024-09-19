@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import tensorflow as tf
-import cv2
+
 
 
 # model = tf.keras.models.load_model('CNN/tumor_detection/results/model/cnn_tumor.h5')
