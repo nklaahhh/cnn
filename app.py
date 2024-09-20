@@ -2,30 +2,29 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import tensorflow as tf
-import cv2
-import numpy as np
 
 
 
-# model = tf.keras.models.load_model('CNN/tumor_detection/results/model/cnn_tumor.h5')
+def load_model():
+    model = tf.keras.models.load_model(r'C:\Users\MY PC\Downloads\deeplearning\CNN\CNN\result\model\cnn_tumor.h5')
+    return model
 
-def make_prediction(img,model):
-    # img=cv2.imread(img)
-    img=Image.fromarray(img)
-    img=img.resize((128,128))
-    img=np.array(img)
-    input_img = np.expand_dims(img, axis=0)
-    res = model.predict(input_img)
-    if res:
-        print("Tumor Detected")
+model = load_model()
+
+
+def preprocess_image(image):
+    image = image.resize((128,128)) 
+    image = np.array(image) / 255.0  
+    image = np.expand_dims(image, axis=0)  
+    return image
+
+
+def predict_tumor(image):
+    predictions = model.predict(image)
+    if predictions[0] > 0.5:  
+        return "Tumorous"
     else:
-        print("No Tumor")
-    return res
-        
-make_prediction(cv2.imread("deeplearning/CNN/tumordata/yes/y964.jpg"),model)
-print("--------------------------------------\n")
-make_prediction(cv2.imread("deeplearning/CNN/tumordata/no/no978.jpg"),model)
-print("--------------------------------------\n")
+        return "Non-tumorous"
 
 
 st.title("Tumor Detection using CNN")
